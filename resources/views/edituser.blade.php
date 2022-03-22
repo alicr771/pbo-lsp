@@ -59,7 +59,7 @@
             </li>
 
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="{{ route('logout') }}">
                     <span>Logout</span></a>
             </li>
 
@@ -95,7 +95,8 @@
                         <h1 class="h3 mb-0 text-gray-800">Edit User</h1>
                     </div>
 
-                    <form action="" method="POST">
+                    <form action="{{ route('userupdate', $user->id) }}" method="POST">
+                        @method('PUT')
                         {{ csrf_field() }}
                         <div class="form-group row">
                             <label class="col-sm-2 col-form-label">Username</label>

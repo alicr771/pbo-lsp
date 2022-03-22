@@ -59,7 +59,7 @@
             </li>
 
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="{{ route('logout') }}">
                     <span>Logout</span></a>
             </li>
 

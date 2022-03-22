@@ -7,7 +7,7 @@ use DB;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class kelolaUser extends Controller
+class UserController extends Controller
 {
 
     public function index()
@@ -46,6 +46,15 @@ class kelolaUser extends Controller
             'edituser',
             ['user' => $user]
         );
+    }
+
+    public function update($iduser, Request $request)
+    {
+        DB::table('users')
+            ->where('id',  $iduser)
+            ->update(['username' => $request->username]);
+
+        return back();
     }
 
     // method untuk hapus data pegawai

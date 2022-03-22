@@ -1,11 +1,12 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\index;
-use App\Http\Controllers\kelolaTransaksi;
-use App\Http\Controllers\kelolaUser;
-use App\Http\Controllers\tambahUser;
-use App\Http\Controllers\loginController;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\TransaksiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,33 +24,23 @@ Route::get('/', function () {
 });
 
 // Bagian Login
-Route::get('/login', [loginController::class, 'index'])->name('login');
+Route::get('/login', [LoginController::class, 'index'])->name('login');
+Route::post('/login/store', [LoginController::class, 'store'])->name('login.custom');
+Route::get('/logout', [LogoutController::class, 'store'])->name('logout');
 
-Route::post('/login/store', [loginController::class, 'store'])->name('login.custom');
-
+// Admin
 Route::get('/index', [index::class, 'index'])->name('index');
 
-Route::get('/kekolatransaksi', [kelolaTransaksi::class, 'index'])->name('kelolatransaksi');
+// Transaksi
+Route::get('/kekolatransaksi', [TransaksiController::class, 'index'])->name('kelolatransaksi');
 
-Route::get('/kelolatransaksi', function () {
-
-    $tbtransaksi = DB::table('tbtransaksi')->get();
-
-    return view('/kelolatransaksi', ['tbtransaksi' => $tbtransaksi]);
-});
-
-Route::get('/kelolauser', [kelolaUser::class, 'index'])->name('kelolauser');
-
+// User
 // bagian tambah user
-
-Route::get('/tambahuser', [kelolaUser::class, 'create'])->name('tambahuser');
-
-Route::post('/tambahuser/store', [kelolaUser::class, 'store'])->name('storeuser');
-
-
+Route::get('/kelolauser', [UserController::class, 'index'])->name('kelolauser');
+Route::get('/tambahuser', [UserController::class, 'create'])->name('tambahuser');
+Route::post('/tambahuser/store', [UserController::class, 'store'])->name('storeuser');
 // bagian edit user
-
-Route::get('/edituser/edit/{id}', [kelolaUser::class, 'edit'])->name('useredit');
-
+Route::get('/edituser/edit/{id}', [UserController::class, 'edit'])->name('useredit');
+Route::put('/edituser/update/{id}', [UserController::class, 'update'])->name('userupdate');
 // bagian hapus user
-Route::get('/edituser/hapus/{id}', [kelolaUser::class, 'hapus'])->name('hapus');
+Route::get('/edituser/hapus/{id}', [UserController::class, 'hapus'])->name('hapus');
