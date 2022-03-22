@@ -53,22 +53,35 @@
         <body>
 
             <!-- Text -->
-            <h4> SILAHKAN LOGIN </h4>
 
             <!-- Form Login -->
-            <div class="container">
-                <form method="POST" action="{{ route('login.custom') }}">
-                    {{ csrf_field() }}
-                    <div class="form-group">
-                        <label>Username</label>
-                        <input type="text" class="form-control" name="username" placeholder="Username" required="">
+            <div class="container mt-5">
+                <div class="row justify-content-center mt-5">
+                    <div class="col-md-6 mt-5">
+                        <div class="card p-3">
+                            <h4> SILAHKAN LOGIN </h4>
+                            <form method="POST" action="{{ route('login.custom') }}">
+                                {{ csrf_field() }}
+                                <div class="form-group">
+                                    <label>Username</label>
+                                    <input type="text" class="form-control" name="username" placeholder="Username"
+                                        required="">
+                                </div>
+                                <div class="form-group">
+                                    <label>Password</label>
+                                    <input type="password" class="form-control" name="password" placeholder="Password"
+                                        required="">
+                                </div>
+                                <button type="submit" name="login" class="btn btn-primary">Login</button>
+                            </form>
+                            @if (session('status'))
+                                <div class=" mt-3 mb-3 text-center text-danger alert-danger alert rounded-lg">
+                                    {{ session('status') }}
+                                </div>
+                            @endif
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label>Password</label>
-                        <input type="password" class="form-control" name="password" placeholder="Password" required="">
-                    </div>
-                    <button type="submit" name="login" class="btn btn-primary">Login</button>
-                </form>
+                </div>
             </div>
         </body>
 

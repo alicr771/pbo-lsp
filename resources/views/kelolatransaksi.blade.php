@@ -20,6 +20,7 @@
     <!-- Custom styles for this template-->
     <link href="{{ asset('css/sb-admin-2.min.css') }}" rel="stylesheet">
 
+
 </head>
 
 <body id="page-top">
@@ -95,36 +96,36 @@
                         <h1 class="h3 mb-0 text-gray-800">Kelola Data Transaksi</h1>
                     </div>
 
-                    <table class="table table-striped table-hover table-bordered">
-                        <tr>
-                            <th>No Transaksi</th>
-                            <th>Tgl Transaksi</th>
-                            <th>Nama</th>
-                            <th>ID User</th>
-                            <th>ID Paket Cuci</th>
-                            <th>Total Harga</th>
-                            <th>Pembayaran</th>
-                            <th>Kembalian</th>
-                            <th>Nama Paket Tambahan</th>
-                        </tr>
-                        @foreach ($transaksi as $data)
+                    <table id="datatable" class="table table-striped ">
+                        <thead>
                             <tr>
-                                <th>{{ $data->idtransaksi }}</th>
-                                <th>{{ $data->tgltransaksi }}</th>
-                                <th>{{ $data->nama }}</th>
-                                <th>{{ $data->iduser }}</th>
-                                <th>{{ $data->idpaketcuci }}</th>
-                                <th>{{ $data->totalharga }}</th>
-                                <th>{{ $data->pembayaran }}</th>
-                                <th>{{ $data->kembalian }}</th>
-                                <th>{{ $data->namapakettambahan }}</th>
+                                <th>No Transaksi</th>
+                                <th>Tgl Transaksi</th>
+                                <th>Nama</th>
+                                <th>ID User</th>
+                                <th>ID Paket Cuci</th>
+                                <th>Total Harga</th>
+                                <th>Pembayaran</th>
+                                <th>Kembalian</th>
+                                <th>Nama Paket Tambahan</th>
                             </tr>
-                        @endforeach
+                        </thead>
+                        <tbody>
+                            @foreach ($transaksi as $data)
+                                <tr>
+                                    <th>{{ $data->idtransaksi }}</th>
+                                    <th>{{ $data->tgltransaksi }}</th>
+                                    <th>{{ $data->nama }}</th>
+                                    <th>{{ $data->iduser }}</th>
+                                    <th>{{ $data->idpaketcuci }}</th>
+                                    <th>{{ $data->totalharga }}</th>
+                                    <th>{{ $data->pembayaran }}</th>
+                                    <th>{{ $data->kembalian }}</th>
+                                    <th>{{ $data->namapakettambahan }}</th>
+                                </tr>
+                            @endforeach
+                        </tbody>
                     </table>
-
-
-
-
                 </div>
                 <!-- End of Main Content -->
 
@@ -137,8 +138,8 @@
 
 
         <!-- Bootstrap core JavaScript-->
-        <script src="vendor/jquery/jquery.min.js"></script>
-        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        {{-- <script src="vendor/jquery/jquery.min.js"></script>
+        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script> --}}
 
         <!-- Core plugin JavaScript-->
         <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
@@ -149,10 +150,52 @@
         <!-- Page level plugins -->
         <script src="vendor/chart.js/Chart.min.js"></script>
 
+
         <!-- Page level custom scripts -->
         <script src="js/demo/chart-area-demo.js"></script>
         <script src="js/demo/chart-pie-demo.js"></script>
 
+        {{-- Export --}}
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+
+        <script src="/docs/5.0/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"
+                integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous">
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"
+                integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous">
+        </script>
+        <script src="dashboard.js"></script>
+
+        {{-- Export --}}
+        <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+        <script src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/buttons/1.5.6/js/dataTables.buttons.min.js"></script>
+        <script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.flash.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+        <script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.html5.min.js"></script>
+        <script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.print.min.js"></script>
+
+        <script>
+            // Jquery Datatable
+            let jquery_datatable = $("#datatable").DataTable({
+                dom: 'Bfrtip',
+                className: 'btn-primary',
+                buttons: {
+                    buttons: [{
+                        extend: 'pdf',
+                        text: 'PDF',
+                        exportOptions: {
+                            columns: ':not(.notexport)'
+                        }
+                    }]
+                }
+            })
+        </script>
 </body>
 
 </html>

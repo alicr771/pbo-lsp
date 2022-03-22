@@ -9,6 +9,10 @@ use Illuminate\Support\Facades\Auth;
 
 class loginController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('guest');
+    }
     public function index()
     {
         return view('login', []);
@@ -32,8 +36,9 @@ class loginController extends Controller
                 return redirect()->intended('index')
                     ->withSuccess('Signed in');
             }
-
-            return redirect("login")->withSuccess('Login details are not valid');
         }
+        if (!auth()->attempt($request->only('username', 'password'))) {
+            return back()->with('status', 'Username atau password yang anda masukan salah');
+        };
     }
 }
