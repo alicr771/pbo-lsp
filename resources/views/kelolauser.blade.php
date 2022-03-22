@@ -108,7 +108,7 @@
                                 <th>{{ $data->id }}</th>
                                 <th>{{ $data->username }}</th>
                                 <th>{{ $data->password }}</th>
-                                <th><a href="{{ route('edituser', $data->id) }}" class="btn btn-primary"> edit</a> |
+                                <th><a href="{{ route('useredit', $data->id) }}" class="btn btn-primary"> edit</a> |
                                     <a href="{{ route('hapus', $data->id) }}" class="btn btn-danger"> hapus</a>
                                 </th>
                             </tr>

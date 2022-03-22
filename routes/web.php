@@ -5,7 +5,6 @@ use App\Http\Controllers\index;
 use App\Http\Controllers\kelolaTransaksi;
 use App\Http\Controllers\kelolaUser;
 use App\Http\Controllers\tambahUser;
-use App\Http\Controllers\editUser;
 use App\Http\Controllers\loginController;
 
 /*
@@ -39,27 +38,18 @@ Route::get('/kelolatransaksi', function () {
     return view('/kelolatransaksi', ['tbtransaksi' => $tbtransaksi]);
 });
 
-Route::get('/kelolatransaksi', 'kelolaTransksi@index');
-
-Route::get('/kelolauser', 'kelolaUser@index');
-
-Route::get('/kekolauser', [kelolaUser::class, 'index'])->name('kelolauser');
+Route::get('/kelolauser', [kelolaUser::class, 'index'])->name('kelolauser');
 
 // bagian tambah user
 
 Route::get('/tambahuser', [tambahUser::class, 'index'])->name('tambahuser');
 
-Route::get('/tambahuser/store', [tambahUser::class, 'store'])->name('storeuser');
-
 Route::post('/tambahuser/store', [tambahUser::class, 'store'])->name('storeuser');
-
 
 
 // bagian edit user
 
-Route::get('/edituser', [editUser::class, 'index'])->name('edituser');
-
-Route::get('/edituser/edit/{iduser}', [editUser::class, 'edit'])->name('useredit');
+Route::get('/edituser/edit/{id}', [kelolaUser::class, 'edit'])->name('useredit');
 
 // bagian hapus user
-Route::get('/edituser/hapus/{iduser}', [editUser::class, 'hapus'])->name('hapus');
+Route::get('/edituser/hapus/{id}', [kelolaUser::class, 'hapus'])->name('hapus');

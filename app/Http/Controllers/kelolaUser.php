@@ -27,10 +27,11 @@ class kelolaUser extends Controller
     // function store
     public function store(Request $request)
     {
+        $password = bcrypt($request->pass);
         // insert data ke table 
         DB::table('users')->insert([
             'username' => $request->username,
-            'password' => $request->pass,
+            'password' => $password,
         ]);
         // alihkan halaman ke halaman user
         return back();
@@ -41,7 +42,10 @@ class kelolaUser extends Controller
         // mengambil data user berdasarkan id yang dipilih
         $user = DB::table('users')->where('id', $iduser)->get()->first();
         // passing data pegawai yang didapat ke view edit.blade.php
-        return view('edituser', ['user' => $user]);
+        return view(
+            'edituser',
+            ['user' => $user]
+        );
     }
 
     // method untuk hapus data pegawai
