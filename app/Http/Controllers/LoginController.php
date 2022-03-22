@@ -15,7 +15,7 @@ class loginController extends Controller
     }
     public function index()
     {
-        return view('login', []);
+        return view('login');
     }
 
     // Disini adalah method untuk melakukan login 
@@ -33,8 +33,7 @@ class loginController extends Controller
             $request->session()->regenerate();
 
             if (Auth::attempt($credentials)) {
-                return redirect()->intended('index')
-                    ->withSuccess('Signed in');
+                return redirect('/index/');
             }
         }
         if (!auth()->attempt($request->only('username', 'password'))) {

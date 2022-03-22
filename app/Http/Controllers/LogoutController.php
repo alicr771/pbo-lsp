@@ -13,7 +13,6 @@ class LogoutController extends Controller
         Session::flush();
         auth()->logout();
 
-
         return redirect('/login/');
     }
 }

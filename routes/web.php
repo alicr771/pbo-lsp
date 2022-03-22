@@ -19,9 +19,6 @@ use App\Http\Controllers\TransaksiController;
 |
 */
 
-Route::get('/', function () {
-    return view('login');
-});
 
 // Bagian Login
 Route::get('/login', [LoginController::class, 'index'])->name('login');
