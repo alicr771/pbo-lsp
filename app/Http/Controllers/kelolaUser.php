@@ -19,7 +19,7 @@ class kelolaUser extends Controller
     }
 
     // function tambah
-    public function tambah()
+    public function create()
     {
         return view('tambahuser');
     }

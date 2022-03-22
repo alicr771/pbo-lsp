@@ -18,7 +18,7 @@
         rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="{{ asset('css/sb-admin-2.min.css') }}" rel="stylesheet">
 
 </head>
 
@@ -100,50 +100,50 @@
                         <div class="form-group row">
                             <label class="col-sm-2 col-form-label">Username</label>
                             <div class="col-sm-10">
-                            <input type="text" name="username" class="form-control" required>
+                                <input type="text" name="username" class="form-control" required>
                             </div>
-                          </div>
-                            <div class="form-group row">
+                        </div>
+                        <div class="form-group row">
                             <label class="col-sm-2 col-form-label">Password</label>
                             <div class="col-sm-10">
-                            <input type="text" name="pass"  class="form-control" required>
+                                <input type="text" name="pass" class="form-control" required>
                             </div>
-                          </div>
-                          <a href="{{ route('kelolauser') }}" class="btn btn-danger"> Kembali </a>
-                          <button type="submit" class="btn btn-primary"> Buat </button>
+                        </div>
+                        <a href="{{ route('kelolauser') }}" class="btn btn-danger"> Kembali </a>
+                        <button type="submit" class="btn btn-primary"> Buat </button>
                     </form>
 
-                    
 
+
+
+
+                </div>
+                <!-- End of Main Content -->
 
 
             </div>
-            <!-- End of Main Content -->
-
+            <!-- End of Content Wrapper -->
 
         </div>
-        <!-- End of Content Wrapper -->
-
-    </div>
-    <!-- End of Page Wrapper -->
+        <!-- End of Page Wrapper -->
 
 
-    <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <!-- Bootstrap core JavaScript-->
+        <script src="vendor/jquery/jquery.min.js"></script>
+        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+        <!-- Core plugin JavaScript-->
+        <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
-    <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.min.js"></script>
+        <!-- Custom scripts for all pages-->
+        <script src="js/sb-admin-2.min.js"></script>
 
-    <!-- Page level plugins -->
-    <script src="vendor/chart.js/Chart.min.js"></script>
+        <!-- Page level plugins -->
+        <script src="vendor/chart.js/Chart.min.js"></script>
 
-    <!-- Page level custom scripts -->
-    <script src="js/demo/chart-area-demo.js"></script>
-    <script src="js/demo/chart-pie-demo.js"></script>
+        <!-- Page level custom scripts -->
+        <script src="js/demo/chart-area-demo.js"></script>
+        <script src="js/demo/chart-pie-demo.js"></script>
 
 </body>
 

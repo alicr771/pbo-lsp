@@ -42,9 +42,9 @@ Route::get('/kelolauser', [kelolaUser::class, 'index'])->name('kelolauser');
 
 // bagian tambah user
 
-Route::get('/tambahuser', [tambahUser::class, 'index'])->name('tambahuser');
+Route::get('/tambahuser', [kelolaUser::class, 'create'])->name('tambahuser');
 
-Route::post('/tambahuser/store', [tambahUser::class, 'store'])->name('storeuser');
+Route::post('/tambahuser/store', [kelolaUser::class, 'store'])->name('storeuser');
 
 
 // bagian edit user

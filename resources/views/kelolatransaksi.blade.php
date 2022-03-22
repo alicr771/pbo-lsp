@@ -18,7 +18,7 @@
         rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="{{ asset('css/sb-admin-2.min.css') }}" rel="stylesheet">
 
 </head>
 
@@ -96,52 +96,62 @@
                     </div>
 
                     <table class="table table-striped table-hover table-bordered">
-                        <tr><th>No Transaksi</th><th>Tgl Transaksi</th><th>Nama</th><th>ID User</th><th>ID Paket Cuci</th><th>Total Harga</th><th>Pembayaran</th><th>Kembalian</th><th>Nama Paket Tambahan</th></tr>
-                        @foreach($transaksi as $data)
                         <tr>
-                    <th>{{$data->idtransaksi}}</th>
-                    <th>{{$data->tgltransaksi}}</th>
-                    <th>{{$data->nama}}</th>
-                    <th>{{$data->iduser}}</th>
-                    <th>{{$data->idpaketcuci}}</th>                 
-                    <th>{{$data->totalharga}}</th>                 
-                    <th>{{$data->pembayaran}}</th>                 
-                    <th>{{$data->kembalian}}</th>                 
-                    <th>{{$data->namapakettambahan}}</th>                 
+                            <th>No Transaksi</th>
+                            <th>Tgl Transaksi</th>
+                            <th>Nama</th>
+                            <th>ID User</th>
+                            <th>ID Paket Cuci</th>
+                            <th>Total Harga</th>
+                            <th>Pembayaran</th>
+                            <th>Kembalian</th>
+                            <th>Nama Paket Tambahan</th>
                         </tr>
-                    @endforeach
+                        @foreach ($transaksi as $data)
+                            <tr>
+                                <th>{{ $data->idtransaksi }}</th>
+                                <th>{{ $data->tgltransaksi }}</th>
+                                <th>{{ $data->nama }}</th>
+                                <th>{{ $data->iduser }}</th>
+                                <th>{{ $data->idpaketcuci }}</th>
+                                <th>{{ $data->totalharga }}</th>
+                                <th>{{ $data->pembayaran }}</th>
+                                <th>{{ $data->kembalian }}</th>
+                                <th>{{ $data->namapakettambahan }}</th>
+                            </tr>
+                        @endforeach
                     </table>
 
 
 
 
-            </div>
-            <!-- End of Main Content -->
+                </div>
+                <!-- End of Main Content -->
 
+
+            </div>
+            <!-- End of Content Wrapper -->
 
         </div>
-        <!-- End of Content Wrapper -->
-
-    </div>
-    <!-- End of Page Wrapper -->
+        <!-- End of Page Wrapper -->
 
 
-    <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <!-- Bootstrap core JavaScript-->
+        <script src="vendor/jquery/jquery.min.js"></script>
+        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+        <!-- Core plugin JavaScript-->
+        <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
-    <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.min.js"></script>
+        <!-- Custom scripts for all pages-->
+        <script src="js/sb-admin-2.min.js"></script>
 
-    <!-- Page level plugins -->
-    <script src="vendor/chart.js/Chart.min.js"></script>
+        <!-- Page level plugins -->
+        <script src="vendor/chart.js/Chart.min.js"></script>
 
-    <!-- Page level custom scripts -->
-    <script src="js/demo/chart-area-demo.js"></script>
-    <script src="js/demo/chart-pie-demo.js"></script>
+        <!-- Page level custom scripts -->
+        <script src="js/demo/chart-area-demo.js"></script>
+        <script src="js/demo/chart-pie-demo.js"></script>
 
 </body>
 
