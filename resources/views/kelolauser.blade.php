@@ -97,49 +97,55 @@
                     <a href="{{ route('tambahuser') }}" class="btn btn-success"> Tambah User</a>
 
                     <table class="table table-striped table-hover table-bordered">
-                        <tr><th>ID user</th><th>Nama</th><th>Password</th><th>Keterangan</th></tr>
-                        @foreach($user as $data)
                         <tr>
-                    <th>{{$data->iduser}}</th>
-                    <th>{{$data->username}}</th>
-                    <th>{{$data->pass}}</th>                
-                    <th><a href="{{ route('edituser', $data->iduser) }}" class="btn btn-primary"> edit</a>   |           
-                    <a href="{{ route('hapus', $data->iduser) }}" class="btn btn-danger"> hapus</a></th>                
+                            <th>ID user</th>
+                            <th>Nama</th>
+                            <th>Password</th>
+                            <th>Keterangan</th>
                         </tr>
-                    @endforeach
+                        @foreach ($user as $data)
+                            <tr>
+                                <th>{{ $data->id }}</th>
+                                <th>{{ $data->username }}</th>
+                                <th>{{ $data->password }}</th>
+                                <th><a href="{{ route('edituser', $data->id) }}" class="btn btn-primary"> edit</a> |
+                                    <a href="{{ route('hapus', $data->id) }}" class="btn btn-danger"> hapus</a>
+                                </th>
+                            </tr>
+                        @endforeach
 
                     </table>
 
 
 
 
-            </div>
-            <!-- End of Main Content -->
+                </div>
+                <!-- End of Main Content -->
 
+
+            </div>
+            <!-- End of Content Wrapper -->
 
         </div>
-        <!-- End of Content Wrapper -->
-
-    </div>
-    <!-- End of Page Wrapper -->
+        <!-- End of Page Wrapper -->
 
 
-    <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <!-- Bootstrap core JavaScript-->
+        <script src="vendor/jquery/jquery.min.js"></script>
+        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+        <!-- Core plugin JavaScript-->
+        <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
-    <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.min.js"></script>
+        <!-- Custom scripts for all pages-->
+        <script src="js/sb-admin-2.min.js"></script>
 
-    <!-- Page level plugins -->
-    <script src="vendor/chart.js/Chart.min.js"></script>
+        <!-- Page level plugins -->
+        <script src="vendor/chart.js/Chart.min.js"></script>
 
-    <!-- Page level custom scripts -->
-    <script src="js/demo/chart-area-demo.js"></script>
-    <script src="js/demo/chart-pie-demo.js"></script>
+        <!-- Page level custom scripts -->
+        <script src="js/demo/chart-area-demo.js"></script>
+        <script src="js/demo/chart-pie-demo.js"></script>
 
 </body>
 

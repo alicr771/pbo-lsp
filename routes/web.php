@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Index;
+use App\Http\Controllers\index;
 use App\Http\Controllers\kelolaTransaksi;
 use App\Http\Controllers\kelolaUser;
 use App\Http\Controllers\tambahUser;
@@ -26,11 +26,11 @@ Route::get('/', function () {
 // Bagian Login
 Route::get('/login', [loginController::class, 'index'])->name('login');
 
-Route::post('/login/store', [loginController::class, 'store'])->name('login.custom'); 
+Route::post('/login/store', [loginController::class, 'store'])->name('login.custom');
 
-Route::get('/index', [index::class, 'index'])->name ('index');
+Route::get('/index', [index::class, 'index'])->name('index');
 
-Route::get('/kekolatransaksi', [kelolaTransaksi::class, 'index'])->name ('kelolatransaksi');
+Route::get('/kekolatransaksi', [kelolaTransaksi::class, 'index'])->name('kelolatransaksi');
 
 Route::get('/kelolatransaksi', function () {
 
@@ -39,32 +39,27 @@ Route::get('/kelolatransaksi', function () {
     return view('/kelolatransaksi', ['tbtransaksi' => $tbtransaksi]);
 });
 
-Route::get('/kelolatransaksi','kelolaTransksi@index');
+Route::get('/kelolatransaksi', 'kelolaTransksi@index');
 
-Route::get('/kelolauser','kelolaUser@index');
+Route::get('/kelolauser', 'kelolaUser@index');
 
-Route::get('/kekolauser', [kelolaUser::class, 'index'])->name ('kelolauser');
+Route::get('/kekolauser', [kelolaUser::class, 'index'])->name('kelolauser');
 
 // bagian tambah user
 
-Route::get('/tambahuser', [tambahUser::class, 'index'])->name ('tambahuser');
+Route::get('/tambahuser', [tambahUser::class, 'index'])->name('tambahuser');
 
-Route::get('/tambahuser/store', [tambahUser::class, 'store'])->name ('storeuser');
+Route::get('/tambahuser/store', [tambahUser::class, 'store'])->name('storeuser');
 
-Route::post('/tambahuser/store', [tambahUser::class, 'store'])->name ('storeuser');
+Route::post('/tambahuser/store', [tambahUser::class, 'store'])->name('storeuser');
 
 
 
 // bagian edit user
 
-Route::get('/edituser', [editUser::class, 'index'])->name ('edituser');
+Route::get('/edituser', [editUser::class, 'index'])->name('edituser');
 
-Route::get('/edituser/edit/{iduser}', [editUser::class, 'edit'])->name ('useredit');
+Route::get('/edituser/edit/{iduser}', [editUser::class, 'edit'])->name('useredit');
 
 // bagian hapus user
-Route::get('/edituser/hapus/{iduser}', [editUser::class, 'hapus'])->name ('hapus');
-
-
-
-
-
+Route::get('/edituser/hapus/{iduser}', [editUser::class, 'hapus'])->name('hapus');
